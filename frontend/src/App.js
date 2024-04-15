@@ -4,6 +4,7 @@ import '../node_modules/bootstrap/dist/css/bootstrap.min.css';
 import  HomePage  from "./pages/homePage/HomePage";
 import  Navbar  from "./components/navBar/NavBar";
 import Input from "./pages/input/Input";
+import MusicPlayer from "./pages/musicPlayer/MusicPlayer";
 
 function App() {
   return (
@@ -16,6 +17,7 @@ function App() {
       
         <Route path="/" element={<HomePage />} />
         <Route path="/input" element={<Input />} />
+        <Route path="/musicPlayer" element={<MusicPlayer />}/>
           
         
       </Routes>

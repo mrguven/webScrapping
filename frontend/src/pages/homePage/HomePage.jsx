@@ -1,3 +1,8 @@
+
+
+const ApplicationID=process.env.REACT_APP_ApplicationID;
+const SearchOnlyAPI=process.env.SearchOnlyAPI;
+
 export default function HomePage(){
 
     function getNumber(a) {
@@ -8,10 +13,14 @@ export default function HomePage(){
         }
     
     }
-
+   
+console.log(ApplicationID);
+   
 
     return(
 
-        <input type="text" />
+        <div>
+            {ApplicationID}
+        </div>
     )
 }
