@@ -160,7 +160,8 @@ export default function Navbar() {
       onClose={handleMenuClose}
     >
       <MenuItem onClick={handleMenuClose}>Profile</MenuItem>
-      <MenuItem onClick={handleMenuClose}>My account</MenuItem>
+     <Link to='/signup' class="text-decoration-none text-black"> <MenuItem onClick={handleMenuClose}>Sign Up</MenuItem></Link>
+     <Link to='/signin' class="text-decoration-none text-black"> <MenuItem onClick={handleMenuClose}>Sign In</MenuItem></Link>
     </Menu>
   );
 
