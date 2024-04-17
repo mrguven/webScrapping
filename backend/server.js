@@ -1,18 +1,32 @@
-require('./request')
-const express=require('express');
-require('dotenv').config()
-const app=express();
+const express = require("express");
+require("dotenv").config();
 
-const port=process.env.PORT
-app.use(express.static('public'))
-app.listen(port,()=>{
-    console.log('we listen port',port);
-})
+const cors = require("cors");
+const app = express();
+const routes = require("./routes/routes");
+const port = process.env.PORT;
+app.use(express.static("public"));
 
-app.get('/',(req,res)=>{
-    res.send('hello world')
-})
+//cookies
+const cookieParser = require("cookie-parser");
+app.use(cookieParser());
+app.use(
+  cors({
+    origin: [5000],
+    methods: "GET,HEAD,PUT,PATCH,POST,DELETE",
+    preflightContinue: false,
+    optionsSuccessStatus: 204,
+  })
+);
+app.use(routes);
+// Middleware
+app.use(express.static("public"));
+app.use(express.json());
+app.use(express.urlencoded({ extended: true }));
 
+app.listen(port, () => {
+  console.log("we listen port", port);
+});
 // index.js
 
 // const cheerio = require("cheerio")

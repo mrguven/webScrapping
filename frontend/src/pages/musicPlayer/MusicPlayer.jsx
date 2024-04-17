@@ -50,17 +50,20 @@ const InputElement = styled("input")(
     color: ${theme.palette.mode === "dark" ? grey[300] : "white"};
     background: ${theme.palette.mode === "dark" ? grey[900] : "none"};
     border: 1px solid ${theme.palette.mode === "dark" ? grey[700] : grey[200]};
-    box-shadow: 0px 2px 2px ${
+    box-shadow: 0px 0px 2px 2px ${
       theme.palette.mode === "dark" ? grey[900] : grey[50]
     };
   
     &:hover {
-      border-color: ${blue[400]};
+      border-color: ${blue[600]};
+      box-shadow: 0 0 0 5px ${
+        theme.palette.mode === "dark" ? blue[600] : blue[200]
+      }
     }
   
     &:focus {
       border-color: ${blue[400]};
-      box-shadow: 0 0 0 3px ${
+      box-shadow: 0 0 0 5px ${
         theme.palette.mode === "dark" ? blue[600] : blue[200]
       };
     }
