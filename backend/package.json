@@ -10,16 +10,25 @@
   "author": "mrg",
   "license": "ISC",
   "dependencies": {
+    "@neondatabase/serverless": "^0.9.1",
     "axios": "^1.6.8",
     "bcrypt": "^5.1.1",
     "cheerio": "^1.0.0-rc.12",
     "cookie-parser": "^1.4.6",
     "cors": "^2.8.5",
     "dotenv": "^16.4.5",
+    "drizzle-orm": "^0.30.8",
     "express": "^4.19.2",
-    "jsonwebtoken": "^9.0.2"
+    "jsonwebtoken": "^9.0.2",
+    "node-gpsd": "^0.3.4",
+    "pg": "^8.11.5",
+    "pg-pool": "^3.6.2",
+    "postgres": "^3.4.4",
+    "serverless-http": "^3.2.0",
+    "socket.io": "^4.7.5"
   },
   "devDependencies": {
+    "drizzle-kit": "^0.20.16",
     "nodemon": "^3.1.0"
   }
 }

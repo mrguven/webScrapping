@@ -18,7 +18,24 @@ export default function HomePage() {
   return (
     <div>
       {ApplicationID}
-      {data && data.adapter[0]}
+      {/* {data && data.adapter[0]} */}
+      <table>
+      <tr>
+              <th>id</th>
+              <th>name</th>
+              <th>value</th>
+            </tr>
+      {data && data.map((data,index)=>{
+        return  (
+          <div>
+            <th>{data.id}</th>
+            <th>{data.name}</th>
+            <th>{data.value}</th>
+            </div>
+        )
+
+      })}
+      </table>
     </div>
   );
 }
