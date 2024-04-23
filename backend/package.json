@@ -17,7 +17,7 @@
     "cookie-parser": "^1.4.6",
     "cors": "^2.8.5",
     "dotenv": "^16.4.5",
-    "drizzle-orm": "^0.30.8",
+    "drizzle-orm": "^0.30.9",
     "express": "^4.19.2",
     "jsonwebtoken": "^9.0.2",
     "node-gpsd": "^0.3.4",
@@ -28,7 +28,7 @@
     "socket.io": "^4.7.5"
   },
   "devDependencies": {
-    "drizzle-kit": "^0.20.16",
+    "drizzle-kit": "^0.20.17",
     "nodemon": "^3.1.0"
   }
 }

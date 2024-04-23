@@ -1,9 +1,29 @@
 const express = require("express");
-const {Pool, Client}=require('pg');
+
+const {Client}=require('pg');
 let { PGHOST, PGDATABASE, PGUSER, PGPASSWORD, ENDPOINT_ID, POSTGRES_PORT,CONNECTIONSTRTING_URL } = process.env;
 const client = new Client({connectionString:CONNECTIONSTRTING_URL,
-    user:PGUSER, password: PGPASSWORD, database: PGDATABASE,port:POSTGRES_PORT}) 
-     client.connect() ;
+    user:PGUSER, password: PGPASSWORD, database: PGDATABASE,host:PGHOST,port:POSTGRES_PORT}) 
+     client.connect(err=>{
+        err ?  reject(err):console.log('connected');
+     });
+   
+  
+        // const pool = new Pool({connectionString:CONNECTIONSTRTING_URL,host:PGHOST,
+        //     user:PGUSER, password: PGPASSWORD, database: PGDATABASE,port:POSTGRES_PORT}) 
+        //      pool.connect(err=>{
+        //         err ?  reject(err):console.log('connected');
+        //      });
+        //      pool.on('error', (err, client) => {
+        //       console.error('Unexpected error in Postgress connection pool', err);
+        //   });
+          
+    
+
+
+
+
+   module.exports={client}
 // async function sayHello() { 
    
     
@@ -15,4 +35,4 @@ const client = new Client({connectionString:CONNECTIONSTRTING_URL,
 //     await client.end() 
 // }
 // sayHello();
-  module.exports=client;
+  
