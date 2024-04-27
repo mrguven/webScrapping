@@ -141,9 +141,11 @@ const axios = require("axios")
 // performScraping()
 
 
-routes.get('/',userInfo.sayHello)
+// routes.get('/',userInfo.sayHello)
 
-
+routes.get('/',(req,res)=>{
+    res.send(asd)
+})
 
 
 

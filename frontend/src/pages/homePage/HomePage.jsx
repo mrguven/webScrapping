@@ -18,8 +18,8 @@ export default function HomePage() {
   return (
     <div>
       {ApplicationID}
-      {/* {data && data.adapter[0]} */}
-      <table>
+      {data && data.adapter[0]}
+      {/* <table>
       <tr>
               <th>id</th>
               <th>name</th>
@@ -35,7 +35,7 @@ export default function HomePage() {
         )
 
       })}
-      </table>
+      </table> */}
     </div>
   );
 }

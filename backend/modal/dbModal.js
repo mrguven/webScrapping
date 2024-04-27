@@ -2,11 +2,17 @@ const express = require("express");
 
 const {Client}=require('pg');
 let { PGHOST, PGDATABASE, PGUSER, PGPASSWORD, ENDPOINT_ID, POSTGRES_PORT,CONNECTIONSTRTING_URL } = process.env;
-const client = new Client({connectionString:CONNECTIONSTRTING_URL,
-    user:PGUSER, password: PGPASSWORD, database: PGDATABASE,host:PGHOST,port:POSTGRES_PORT}) 
-     client.connect(err=>{
-        err ?  reject(err):console.log('connected');
-     });
+
+    const  client = new Client({
+        user:PGUSER, password: PGPASSWORD, database: PGDATABASE,host:PGHOST,port:POSTGRES_PORT}) 
+         client.connect()
+         .then(console.log('database connected'))
+         .catch(err=>console.log(err));
+         client.on('error', (err) => console.log(err))
+
+
+
+     
    
   
         // const pool = new Pool({connectionString:CONNECTIONSTRTING_URL,host:PGHOST,

@@ -1,10 +1,10 @@
 const express = require("express");
 require("dotenv").config();
-const cors = require("cors");
-const app = express();
 const routes = require("./routes/routes");
-const port = process.env.PORT;
+const app = express();
 require('./modal/dbModal')
+const port = process.env.PORT;
+const cors = require("cors");
 app.use(express.static("public"));
 
 //cookies
