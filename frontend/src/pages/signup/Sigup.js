@@ -12,8 +12,9 @@ import LockOutlinedIcon from '@mui/icons-material/LockOutlined';
 import Typography from '@mui/material/Typography';
 import Container from '@mui/material/Container';
 import { createTheme, ThemeProvider } from '@mui/material/styles';
-import { useState } from 'react';
-
+import { useState,useRef,useEffect } from 'react';
+import  axios  from 'axios';
+import'./signup.css'
 function Copyright(props) {
   return (
     <Typography variant="body2" color="text.secondary" align="center" {...props}>
@@ -32,16 +33,65 @@ function Copyright(props) {
 const defaultTheme = createTheme();
 
 export default function SignUp() {
-  const handleSubmit = (event) => {
-    event.preventDefault();
-    const data = new FormData(event.currentTarget);
-    console.log({
-      email: data.get('email'),
-      password: data.get('password'),
-    });
-  };
-
   const [userInfo,setUserInfo]=useState({})
+  const [firstName,setFirstName]=useState('');
+  const [lastName,setLastName]=useState('');
+  const [email,setEmail]=useState('');
+  const [password,setPassword]=useState('');
+  const [passwordRepeat,setPasswordRepeat]=useState('');
+  const [passwordError,setPasswordError]=useState('');
+  const [userError,setUserError]=useState();
+ const refEmail=useRef();
+ const refFirstName=useRef();
+ const refLasttName=useRef();
+ const refPassword=useRef();
+ const refRepeatedPassword=useRef();
+  const [resEmail,setResEmail]=useState(null);
+
+  function submitSignUp() {
+   
+    
+console.log(firstName);
+    if (password !== passwordRepeat ) {
+      setPasswordError('*password must be same');
+      setTimeout(() => {
+       setPasswordError(null)
+      }, 3000);
+   } else {
+     console.log(firstName,'beforepost');
+     if((firstName && lastName && password && email)) {
+       console.log(firstName,'afterpost');
+       axios.post("http://localhost:8080/createuser",{
+         firstName,
+         lastName,
+         password,
+         email
+       }).then((result) => {
+         console.log(result);
+       }).catch((err) => {
+         console.log(err);
+       });
+  }
+   }}
+  // const handleSubmit = (event) => {
+  //   event.preventDefault();
+  //   const data = new FormData(event.currentTarget);
+  //   // setFirstName(data.get('firstName'));
+  //   // setLastName(data.get('lastName'));
+  //   // setEmail(data.get('email'));
+  //   // setPasswordRepeat( data.get('passwordRepeat'));
+  //   // setPassword(data.get('password'))
+   
+  //   console.log({
+  //     email: data.get('email'),
+  //     password: data.get('password'),
+  //     passwordRepeat: data.get('passwordRepeat'),
+  //     firstName: data.get('firstName'),
+  //     lastName: data.get('lastName')
+  //   });
+  // };
+
+  
 
   return (
     <ThemeProvider theme={defaultTheme}>
@@ -59,12 +109,13 @@ export default function SignUp() {
             <LockOutlinedIcon />
           </Avatar>
           <Typography component="h1" variant="h5">
-            Sign up
+            Sign up 
           </Typography>
-          <Box component="form" noValidate onSubmit={handleSubmit} sx={{ mt: 3 }}>
+          <Box component="form" noValidate onSubmit={e=>{e.preventDefault();submitSignUp()}
+          } sx={{ mt: 3 }}>
             <Grid container spacing={2}>
               <Grid item xs={12} sm={6}>
-                <TextField
+                <input className='class-signup-input'
                   autoComplete="given-name"
                   name="firstName"
                   required
@@ -72,49 +123,55 @@ export default function SignUp() {
                   id="firstName"
                   label="First Name"
                   autoFocus
-                />
+                  ref={refFirstName}
+                  />
               </Grid>
               <Grid item xs={12} sm={6}>
-                <TextField
+                <input className='class-signup-input'
                   required
                   fullWidth
                   id="lastName"
                   label="Last Name"
                   name="lastName"
                   autoComplete="family-name"
+                  ref={refLasttName}
                 />
               </Grid>
               <Grid item xs={12}>
-                <TextField
+                <input className='class-signup-input'
                   required
                   fullWidth
                   id="email"
                   label="Email Address"
                   name="email"
                   autoComplete="email"
+                  ref={refEmail}
                 />
+               <i>{userError && userError}</i> 
               </Grid>
               <Grid item xs={12}>
-                <TextField
+                <input className='class-signup-input'
                   required
                   fullWidth
                   name="password"
                   label="Password"
                   type="password"
-                  id="password"
                   autoComplete="new-password"
+                  ref={refPassword}
                 />
+               <i>{passwordError && passwordError}</i> 
               </Grid>
               <Grid item xs={12}>
-                <TextField
+                <input className='class-signup-input'
                   required
                   fullWidth
-                  name="password"
+                  name="passwordRepeat"
                   label="Repeat-Password"
                   type="password"
-                  id="password"
                   autoComplete="new-password"
+                  ref={refRepeatedPassword}
                 />
+                <i>{passwordError && passwordError}</i> 
               </Grid>
               <Grid item xs={12}>
                 <FormControlLabel
@@ -128,6 +185,10 @@ export default function SignUp() {
               fullWidth
               variant="contained"
               sx={{ mt: 3, mb: 2 }}
+              onClick={()=>{setEmail(refEmail.current.value);
+                setFirstName(refFirstName.current.value);
+                setLastName(refLasttName.current.value);setPassword(refPassword.current.value);
+                setPasswordRepeat(refRepeatedPassword.current.value)}}
             >
               Sign Up
             </Button>

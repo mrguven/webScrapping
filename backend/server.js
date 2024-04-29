@@ -2,10 +2,13 @@ const express = require("express");
 require("dotenv").config();
 const routes = require("./routes/routes");
 const app = express();
+// Middleware
+app.use(express.static("public"));
+app.use(express.json());
+app.use(express.urlencoded({ extended: true }));
 require('./modal/dbModal')
 const port = process.env.PORT;
 const cors = require("cors");
-app.use(express.static("public"));
 
 //cookies
 const cookieParser = require("cookie-parser");
@@ -20,10 +23,7 @@ app.use(
 );
 app.use(routes);
 
-// Middleware
-app.use(express.static("public"));
-app.use(express.json());
-app.use(express.urlencoded({ extended: true }));
+
 
 app.listen(port, () => {
   console.log("we listen port", port);
