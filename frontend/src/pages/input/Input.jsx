@@ -7,7 +7,7 @@ import Select from "@mui/material/Select";
 import { React, useState } from "react";
 import FormGroup from "@mui/material/FormGroup";
 import FormControlLabel from "@mui/material/FormControlLabel";
-import Checkbox from "@mui/material/Checkbox";
+import Switch from '@mui/material/Switch';
 import Button from "@mui/material/Button";
 import SendIcon from "@mui/icons-material/Send";
 import Stack from "@mui/material/Stack";
@@ -99,7 +99,7 @@ export default function Input() {
             <FormGroup sx={{ m: 10 }}>
               <FormControlLabel
                 required
-                control={<Checkbox />}
+                control={<Switch />}
                 label="updates about the conference"
               />
             </FormGroup>

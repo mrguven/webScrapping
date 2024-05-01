@@ -1,17 +1,41 @@
-export default function HomePage(){
+import { useState, useEffect } from "react";
+import axios from "axios";
 
-    function getNumber(a) {
-        if(a>10){
-            return alert('Greater then 10')
-        }else{
-            return alert('less then 10 or equal to 10')
-        }
-    
-    }
+const ApplicationID = process.env.REACT_APP_ApplicationID;
+const SearchOnlyAPI = process.env.SearchOnlyAPI;
 
+export default function HomePage() {
+  const [data, setData] = useState(null);
+  useEffect(() => {
+    axios.get("http://localhost:8080/").then((res) => {
+      setData(res.data);
+      console.log(res.data);
+    });
+  }, []);
 
-    return(
+  console.log(ApplicationID);
 
-        <input type="text" />
-    )
+  return (
+    <div>
+      {ApplicationID}
+      {data && data.adapter[0]}
+      {/* <table>
+      <tr>
+              <th>id</th>
+              <th>name</th>
+              <th>value</th>
+            </tr>
+      {data && data.map((data,index)=>{
+        return  (
+          <div>
+            <th>{data.id}</th>
+            <th>{data.name}</th>
+            <th>{data.value}</th>
+            </div>
+        )
+
+      })}
+      </table> */}
+    </div>
+  );
 }

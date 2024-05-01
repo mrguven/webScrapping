@@ -93,13 +93,13 @@ export default function Navbar() {
       onKeyDown={toggleDrawer(anchor, false)}
     >
       <List>
-        {["Inbox", "Starred", "Send email", "Drafts"].map((text, index) => (
-          <ListItem key={text} disablePadding>
+        {[{menuName:"Music Player",menuRoute:'/musicPlayer'}, {menuName:"All mail",menuRoute:'/input'},{menuName:"All mail",menuRoute:'/input'}].map((text, index) => (
+          <ListItem key={index} disablePadding>
             <ListItemButton>
               <ListItemIcon>
                 {index % 2 === 0 ? <InboxIcon /> : <MailIcon />}
               </ListItemIcon>
-              <ListItemText primary={text} />
+            <Link to={text.menuRoute} class="text-decoration-none text-black"> <ListItemText primary={text.menuName} /></Link> 
             </ListItemButton>
           </ListItem>
         ))}
@@ -107,7 +107,7 @@ export default function Navbar() {
       <Divider />
       <List>
         {[{menuName:"All mail",menuRoute:'/input'}, {menuName:"Trash",menuRoute:'/input'}, {menuName:"Spam",menuRoute:'/input'}].map((text, index) => (
-          <ListItem key={text} disablePadding>
+          <ListItem key={index} disablePadding>
             <ListItemButton>
               <ListItemIcon>
                 {index % 2 === 0 ? <InboxIcon /> : <MailIcon />}
@@ -122,7 +122,6 @@ export default function Navbar() {
 
   const [anchorEl, setAnchorEl] = useState(null);
   const [mobileMoreAnchorEl, setMobileMoreAnchorEl] = useState(null);
-
   const isMenuOpen = Boolean(anchorEl);
   const isMobileMenuOpen = Boolean(mobileMoreAnchorEl);
 
@@ -161,7 +160,8 @@ export default function Navbar() {
       onClose={handleMenuClose}
     >
       <MenuItem onClick={handleMenuClose}>Profile</MenuItem>
-      <MenuItem onClick={handleMenuClose}>My account</MenuItem>
+     <Link to='/signup' class="text-decoration-none text-black"> <MenuItem onClick={handleMenuClose}>Sign Up</MenuItem></Link>
+     <Link to='/signin' class="text-decoration-none text-black"> <MenuItem onClick={handleMenuClose}>Sign In</MenuItem></Link>
     </Menu>
   );
 
