@@ -93,26 +93,40 @@ export default function Navbar() {
       onKeyDown={toggleDrawer(anchor, false)}
     >
       <List>
-        {[{menuName:"Music Player",menuRoute:'/musicPlayer'}, {menuName:"All mail",menuRoute:'/input'},{menuName:"All mail",menuRoute:'/input'}].map((text, index) => (
+        {[
+          { menuName: "Music Player", menuRoute: "/musicPlayer" },
+          { menuName: "All mail", menuRoute: "/input" },
+          { menuName: "All mail", menuRoute: "/input" },
+        ].map((text, index) => (
           <ListItem key={index} disablePadding>
             <ListItemButton>
               <ListItemIcon>
                 {index % 2 === 0 ? <InboxIcon /> : <MailIcon />}
               </ListItemIcon>
-            <Link to={text.menuRoute} class="text-decoration-none text-black"> <ListItemText primary={text.menuName} /></Link> 
+              <Link to={text.menuRoute} class="text-decoration-none text-black">
+                {" "}
+                <ListItemText primary={text.menuName} />
+              </Link>
             </ListItemButton>
           </ListItem>
         ))}
       </List>
       <Divider />
       <List>
-        {[{menuName:"All mail",menuRoute:'/input'}, {menuName:"Trash",menuRoute:'/input'}, {menuName:"Spam",menuRoute:'/input'}].map((text, index) => (
+        {[
+          { menuName: "All mail", menuRoute: "/input" },
+          { menuName: "Trash", menuRoute: "/input" },
+          { menuName: "Spam", menuRoute: "/input" },
+        ].map((text, index) => (
           <ListItem key={index} disablePadding>
             <ListItemButton>
               <ListItemIcon>
                 {index % 2 === 0 ? <InboxIcon /> : <MailIcon />}
               </ListItemIcon>
-            <Link to={text.menuRoute} class="text-decoration-none text-black">  <ListItemText primary={text.menuName} /></Link>
+              <Link to={text.menuRoute} class="text-decoration-none text-black">
+                {" "}
+                <ListItemText primary={text.menuName} />
+              </Link>
             </ListItemButton>
           </ListItem>
         ))}
@@ -160,8 +174,14 @@ export default function Navbar() {
       onClose={handleMenuClose}
     >
       <MenuItem onClick={handleMenuClose}>Profile</MenuItem>
-     <Link to='/signup' class="text-decoration-none text-black"> <MenuItem onClick={handleMenuClose}>Sign Up</MenuItem></Link>
-     <Link to='/signin' class="text-decoration-none text-black"> <MenuItem onClick={handleMenuClose}>Sign In</MenuItem></Link>
+      <Link to="/signup" class="text-decoration-none text-black">
+        {" "}
+        <MenuItem onClick={handleMenuClose}>Sign Up</MenuItem>
+      </Link>
+      <Link to="/signin" class="text-decoration-none text-black">
+        {" "}
+        <MenuItem onClick={handleMenuClose}>Sign In</MenuItem>
+      </Link>
     </Menu>
   );
 
