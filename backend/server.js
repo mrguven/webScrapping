@@ -7,6 +7,7 @@ app.use(express.static("public"));
 app.use(express.json());
 app.use(express.urlencoded({ extended: true }));
 require('./modal/dbModal')
+require('./request')
 const port = process.env.PORT;
 const cors = require("cors");
 

@@ -28,11 +28,9 @@
 //      accountDescription varchar(300) NOT NULL,
 //      amount INT NOT NULL,
 //      transactionDate TIMESTAMP)`).then(res=>console.log(res)).catch(err=>console.log(err))
-
-
-
 const {Client}=require('pg');
 let { PGHOST, PGDATABASE, PGUSER, PGPASSWORD, ENDPOINT_ID, POSTGRES_PORT,CONNECTIONSTRTING_URL } = process.env;
+
 
     const  client = new Client({
         user:PGUSER, password: PGPASSWORD, database: PGDATABASE,host:PGHOST,port:POSTGRES_PORT}) 
@@ -40,6 +38,7 @@ let { PGHOST, PGDATABASE, PGUSER, PGPASSWORD, ENDPOINT_ID, POSTGRES_PORT,CONNECT
          .then(console.log('database connected'))
          .catch(err=>console.log(err));
          client.on('error', (err) => console.log(err))
+
 
 
 

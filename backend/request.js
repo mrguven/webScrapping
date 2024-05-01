@@ -1,20 +1,23 @@
 const cheerio = require("cheerio")
 const axios = require("axios")
-// let scrapedDataJSON=null
-// async function performScraping() {
-//     // downloading the target web page
-//     // by performing an HTTP GET request in Axios
-//     const axiosResponse = await axios.request({
-//         method: "GET",
-//         url: "https://brightdata.com/",
-//         headers: {
-//             "User-Agent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/108.0.0.0 Safari/537.36"
-//         }
-//     })
+let scrapedDataJSON=null
+async function performScraping() {
+    // downloading the target web page
+    // by performing an HTTP GET request in Axios
+    const axiosResponse = await axios.request({
+        method: "GET",
+        url: "https://www.bol.com/nl/nl/",
+        headers: {
+            "User-Agent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/108.0.0.0 Safari/537.36"
+        }
+    })
 
-//     // parsing the HTML source of the target web page with Cheerio
-//     const $ = cheerio.load(axiosResponse.data)
-
+    // parsing the HTML source of the target web page with Cheerio
+    const $ = cheerio.load(axiosResponse.data)
+    const t=$('#__next')
+    console.log(t);
+}
+performScraping();
 //     // initializing the data structures
 //     // that will contain the scraped data
 //     const industries = []

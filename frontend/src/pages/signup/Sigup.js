@@ -14,7 +14,7 @@ import Container from '@mui/material/Container';
 import { createTheme, ThemeProvider } from '@mui/material/styles';
 import { useState,useRef,useEffect } from 'react';
 import  axios  from 'axios';
-import'./signup.css'
+import './signup.css';
 function Copyright(props) {
   return (
     <Typography variant="body2" color="text.secondary" align="center" {...props}>
@@ -121,7 +121,7 @@ console.log(firstName);
                   required
                   fullWidth
                   id="firstName"
-                  label="First Name"
+                  placeholder="First Name"
                   autoFocus
                   ref={refFirstName}
                   />
@@ -131,7 +131,7 @@ console.log(firstName);
                   required
                   fullWidth
                   id="lastName"
-                  label="Last Name"
+                  placeholder="Last Name"
                   name="lastName"
                   autoComplete="family-name"
                   ref={refLasttName}
@@ -142,7 +142,7 @@ console.log(firstName);
                   required
                   fullWidth
                   id="email"
-                  label="Email Address"
+                  placeholder="Email"
                   name="email"
                   autoComplete="email"
                   ref={refEmail}
@@ -154,7 +154,7 @@ console.log(firstName);
                   required
                   fullWidth
                   name="password"
-                  label="Password"
+                  placeholder="Password"
                   type="password"
                   autoComplete="new-password"
                   ref={refPassword}
@@ -166,7 +166,7 @@ console.log(firstName);
                   required
                   fullWidth
                   name="passwordRepeat"
-                  label="Repeat-Password"
+                  placeholder="Repeat-Password"
                   type="password"
                   autoComplete="new-password"
                   ref={refRepeatedPassword}
