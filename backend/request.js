@@ -16,7 +16,28 @@ async function performScraping() {
     const $ = cheerio.load(axiosResponse.data)
     const t=$('#__next')
     console.log(t);
-}
+
+    $("#__next")
+            .find(".c-lesPJm c-cmpvrW")
+            .each((index, element) => {
+                // extracting the data of interest
+                const pageUrl = $(element).attr("href")
+                const image = $(element).find(".c-gComJa").attr("data-lazy-src")
+                const name = $(element).find(".c-gTgMFK c-gTgMFK-ctDhZw-appearance-promo c-gTgMFK-eQgyS-size-small c-gTgMFK-jmANMO-cv c-gTgMFK-emzlPC-cv").text()
+            console.log(name,'name');
+                // filtering out not interesting data
+                if (name && pageUrl) {
+                    // converting the data extracted into a more
+                    // readable object
+                    const industry = {
+                        url: pageUrl,
+                        image: image,
+                        name: name
+                    }
+                    console.log(industry,'industry');
+ } })}
+
+
 performScraping();
 //     // initializing the data structures
 //     // that will contain the scraped data

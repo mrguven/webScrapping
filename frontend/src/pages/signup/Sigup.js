@@ -150,7 +150,7 @@ export default function SignUp() {
                   ref={refLasttName}
                 />
               </Grid>
-              <Grid item xs={12}>
+              <Grid item xs={25}>
                 <input
                   className="class-signup-input"
                   required
@@ -160,10 +160,10 @@ export default function SignUp() {
                   name="email"
                   autoComplete="email"
                   ref={refEmail}
-                />
+                /> <br />
                 <i>{userError && userError}</i>
               </Grid>
-              <Grid item xs={12}>
+              <Grid item xs={25}>
                 <input
                   className="class-signup-input"
                   required
@@ -174,6 +174,7 @@ export default function SignUp() {
                   autoComplete="new-password"
                   ref={refPassword}
                 />
+                 <br />
                 <i>{passwordError && passwordError}</i>
               </Grid>
               <Grid item xs={12}>

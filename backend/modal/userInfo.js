@@ -3,7 +3,7 @@ const db=require('./dbModal')
 
 async function createUser(req,res) { 
     let {firstName,lastName,password,email}= req.body
-    console.log(req.body,'firstnamefff');
+    console.log(req.body,'firstname');
     console.log(req.body.firstName);
     console.log(req.body);
    if( (firstName && lastName && password && email)){
@@ -59,3 +59,93 @@ async function createUser(req,res) {
 // }
 // alterColumn();
    module.exports={createUser};
+
+
+   {
+      "language": "Türkçe",
+      "screens": {
+          "intro": {
+              "title": "Başlık",
+              "text": {
+                  "introText": "Bu Türkçe metin",
+                  "login": "Giriş",
+                  "signup": "Kayıt"
+              }
+          },
+          "login": {
+              "title": "Giriş",
+              "text": {
+                  "login": "Giriş Yap",
+                  "emailAddress": "E-mail Adresi",
+                  "password": "Şifre",
+                  "continue": "Devam",
+                  "createAccount": "Hesap Oluştur",
+                  "forgotPassword": "Şifremi Unuttum"
+              }
+          }
+      }
+  }
+
+  /////
+
+
+
+
+
+////
+
+{
+   "language": "French",
+   "screens": {
+       "intro": {
+           "title": "Écran d'introduction",
+           "text": {
+               "introText": "voici le texte d'introduction en français",
+               "login": "Connexion",
+               "signup": "S'inscrire"
+           }
+       },
+       "login": {
+           "title": "S'identifier",
+           "text": {
+               "login": "connexion",
+               "emailAddress": "Adresse e-mail",
+               "password": "mot de passe",
+               "continue": "Continuer",
+               "createAccount": "Créer un compte",
+               "forgotPassword": "Mot de passe oublié?"
+           }
+       }
+   }
+}
+
+///
+
+{
+   "language": "English",
+   "screens": {
+       "intro": {
+           "title": "Intro Screen",
+           "text": {
+               "introText": "This is the intro text in english",
+               "login": "Login",
+               "signup": "Sign Up"
+           }
+       },
+       "login": {
+           "title": "Sign in",
+           "text": {
+               "login": "login",
+               "emailAddress": "Email address",
+               "password": "password",
+               "continue": "Continue",
+               "createAccount": "Create an Account",
+               "forgotPassword": "Forgotten password?"
+           }
+       }
+   }
+   
+}
+
+
+
